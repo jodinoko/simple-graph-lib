@@ -83,7 +83,6 @@ public class Graph<T> implements IGraph<T> {
 		}
 	}
 
-	@Override
 	public Collection<Vertex<T>> getVertexes() {
 		lock.readLock().lock();
 		try {
@@ -93,7 +92,6 @@ public class Graph<T> implements IGraph<T> {
 		}
 	}
 
-	@Override
 	public Collection<Vertex<T>> getAdjacentVertexes(T value) {
 		if (value == null) {
 			throw new IllegalArgumentException(Messages.getString("NullVertexValue"));
@@ -101,7 +99,6 @@ public class Graph<T> implements IGraph<T> {
 		return getAdjacentVertexes(new Vertex<>(value));
 	}
 
-	@Override
 	public Collection<Vertex<T>> getAdjacentVertexes(Vertex<T> vertex) {
 		if (vertex == null) {
 			throw new IllegalArgumentException(Messages.getString("NullVertexValue"));

@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.function.Consumer;
 
 /**
- * Graph thread safe representation
+ * Graph interface
  *
  * @param <T>
  * 		type of the graph vertex value
@@ -45,35 +45,6 @@ public interface IGraph<T> {
 	 * 		if edge, source or destination is null
 	 */
 	void addEdge(Edge<T> edge);
-
-	/**
-	 * Returns collection of all vertexes in graph
-	 *
-	 * @return collection of all vertexes
-	 */
-	Collection<Vertex<T>> getVertexes();
-
-	/**
-	 * Returns collection of adjacent vertexes for vertex
-	 *
-	 * @param vertex
-	 * 		vertex
-	 * @return collection of adjacent vertexes
-	 * @throws IllegalArgumentException
-	 * 		if vertex is null
-	 */
-	Collection<Vertex<T>> getAdjacentVertexes(Vertex<T> vertex);
-
-	/**
-	 * Returns collection of adjacent vertexes for vertex with specified value
-	 *
-	 * @param value
-	 * 		vertex value
-	 * @return collection of adjacent vertexes
-	 * @throws IllegalArgumentException
-	 * 		if vertex value is null
-	 */
-	Collection<Vertex<T>> getAdjacentVertexes(T value);
 
 	/**
 	 * Returns path between source and destination vertexes

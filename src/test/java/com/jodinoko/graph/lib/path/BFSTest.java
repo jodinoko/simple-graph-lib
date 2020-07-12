@@ -18,7 +18,7 @@ import org.junit.Test;
 public class BFSTest {
 
 	private IPathFinder<Integer> pathFinder = new BFS<>();
-	private GraphFactory<Integer> factory = new GraphFactory<>();
+	private GraphFactory factory = GraphFactory.getInstance();
 
 	@Test
 	public void testCornerCases() {

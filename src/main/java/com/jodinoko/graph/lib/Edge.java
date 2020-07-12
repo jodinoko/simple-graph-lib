@@ -60,7 +60,7 @@ public class Edge<T> {
 	public static class Builder<T> {
 		private Vertex<T> source;
 		private Vertex<T> destination;
-		private double weight = 0D;
+		private double weight = 1D;
 
 		private Builder() {
 		}
@@ -70,8 +70,7 @@ public class Edge<T> {
 		}
 
 		public Builder<T> source(T source) {
-			this.source = new Vertex<T>(source);
-			return this;
+			return source(new Vertex<T>(source));
 		}
 
 		public Builder<T> source(Vertex<T> source) {
@@ -80,8 +79,7 @@ public class Edge<T> {
 		}
 
 		public Builder<T> destination(T destination) {
-			this.destination = new Vertex<T>(destination);
-			return this;
+			return destination(new Vertex<T>(destination));
 		}
 
 		public Builder<T> destination(Vertex<T> destination) {

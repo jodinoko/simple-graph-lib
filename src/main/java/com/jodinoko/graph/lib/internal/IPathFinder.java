@@ -4,6 +4,12 @@ import java.util.Collection;
 
 import com.jodinoko.graph.lib.Vertex;
 
+/**
+ * Path finder interface for graph path algorithms implementations
+ *
+ * @param <T>
+ * 		type of the graph vertex value
+ */
 public interface IPathFinder<T> {
 
 	/**

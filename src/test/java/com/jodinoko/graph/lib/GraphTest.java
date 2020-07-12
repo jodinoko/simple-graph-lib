@@ -5,15 +5,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.jodinoko.graph.lib.internal.Graph;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class GraphTest {
-	private GraphFactory<Integer> factory = new GraphFactory<>();
+	private GraphFactory factory = GraphFactory.getInstance();
 
 	@Test
 	public void testAddVertexes() {
-		IGraph<Integer> graph = factory.createSimple();
+		Graph<Integer> graph = new Graph<>(false, false);
 		try {
 			graph.addVertex(null);
 			Assert.fail();
@@ -34,7 +35,7 @@ public class GraphTest {
 
 	@Test
 	public void testAddEdges() {
-		IGraph<Integer> graph = factory.createSimple();
+		Graph<Integer> graph = new Graph<>(false, false);
 		graph.addVertex(0);
 		graph.addVertex(1);
 		graph.addVertex(2);
@@ -62,7 +63,7 @@ public class GraphTest {
 		Assert.assertEquals(graph.getAdjacentVertexes(0).size(), 1);
 		Assert.assertEquals(graph.getAdjacentVertexes(1).size(), 1);
 
-		graph = factory.createDirected();
+		graph = new Graph<>(true, false);
 		graph.addVertex(0);
 		graph.addVertex(1);
 		graph.addEdge(Edge.<Integer>builder().source(0).destination(1).build());
@@ -103,9 +104,7 @@ public class GraphTest {
 		graph.addVertex(3);
 
 		AtomicInteger sum = new AtomicInteger(0);
-		graph.traverse((v) -> {
-			sum.addAndGet(v.getValue());
-		});
+		graph.traverse((v) -> sum.addAndGet(v.getValue()));
 		Assert.assertEquals(sum.intValue(), 6);
 	}
 }
